@@ -6,23 +6,18 @@ from src.datasets.data_loader import load_data
 
 class TranslationPipeline:
     def __init__(self, model_path, config_path):
-        self.model = load_saved_model(model_path)
-        with open(config_path, 'r') as f:
-            config = yaml.safe_load(f)
+        from src.training.trainer import Trainer
+        trainer = Trainer(config_path)
+        trainer.prepare_data()
+        trainer.initialize_model()
         
-        # Extract tokenizer state from small dataset subset as done previously
-        en_path = config['data']['en_path']
-        fr_path = config['data']['fr_path']
+        # Load the weights manually instead of load_model to bypass deserialize bugs
+        trainer.model.load_weights(model_path)
+        self.model = trainer.model
         
-        english_sentences = load_data(en_path)
-        french_sentences = load_data(fr_path)
-        
-        from src.datasets.preprocessing import preprocess
-        _, preproc_fr, self.en_tokenizer, self.fr_tokenizer = preprocess(
-            english_sentences, french_sentences
-        )
-            
-        self.max_fr_len = preproc_fr.shape[1]
+        self.en_tokenizer = trainer.en_tokenizer
+        self.fr_tokenizer = trainer.fr_tokenizer
+        self.max_fr_len = trainer.max_fr_len
 
     def translate(self, text):
         seq = self.en_tokenizer.texts_to_sequences([text])

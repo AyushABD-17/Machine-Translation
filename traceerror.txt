@@ -1,0 +1,52 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "C:\Users\CT_USER\Desktop\machine_translation\api\fastapi_server.py", line 14, in <module>
+    text_pipeline = TranslationPipeline(
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\Desktop\machine_translation\src\inference\translation_pipeline.py", line 9, in __init__
+    self.model = load_saved_model(model_path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\Desktop\machine_translation\src\utils\model_io.py", line 8, in load_saved_model
+    model = load_model(path)
+            ^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\saving\saving_api.py", line 196, in load_model
+    return legacy_h5_format.load_model_from_hdf5(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\legacy\saving\legacy_h5_format.py", line 137, in load_model_from_hdf5
+    model = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 83, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 488, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\models\model.py", line 823, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\models\functional.py", line 561, in functional_from_config
+    process_layer(layer_data)
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\models\functional.py", line 524, in process_layer
+    layer = saving_utils.model_from_config(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\legacy\saving\saving_utils.py", line 83, in model_from_config
+    return serialization.deserialize_keras_object(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\legacy\saving\serialization.py", line 488, in deserialize_keras_object
+    deserialized_obj = cls.from_config(
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\models\model.py", line 823, in from_config
+    return functional_from_config(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\models\functional.py", line 580, in functional_from_config
+    process_node(layer, node_data)
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\models\functional.py", line 510, in process_node
+    layer(*args, **kwargs)
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\site-packages\keras\src\utils\traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\inspect.py", line 3204, in bind
+    return self._bind(args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\CT_USER\AppData\Local\Programs\Python\Python311\Lib\inspect.py", line 3125, in _bind
+    raise TypeError('too many positional arguments') from None
+TypeError: too many positional arguments
