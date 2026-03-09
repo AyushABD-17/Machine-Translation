@@ -1,3 +1,8 @@
 numpy
 tensorflow
 keras
+nltk
+pyyaml
+fastapi
+pydantic
+uvicorn

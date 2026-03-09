@@ -1,0 +1,17 @@
+# transformer_config.yaml
+model:
+  type: "transformer"
+  embedding_size: 256
+  attention_heads: 4
+  ff_dim: 128
+
+training:
+  learning_rate: 0.001
+  batch_size: 1024
+  epochs: 10
+  validation_split: 0.2
+
+data:
+  en_path: "data/small_vocab_en"
+  fr_path: "data/small_vocab_fr"
+  save_dir: "saved_models/transformer"
